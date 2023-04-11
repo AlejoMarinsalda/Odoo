@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_employee_form_view_inherit" model="ir.ui.view">
+        <field name="name">HR Employee form view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[2]/field[@name='coach_id']" position="after"> <!--el campo xpath permite seleccionar y alterar contenido de la vista padre, el elemento expr selecciona la ruta del elemento -->
+                <field name="is_supervisor" string="is_supervisor"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

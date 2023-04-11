@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<odoo>
+
+    <record id="jugadores_action" model="ir.actions.act_window">
+        <field name="name">Jugadores</field>
+        <!-- indicamos el modelo a utilizar -->
+        <field name="res_model">modulo.jugador</field>
+        <!-- indicamos la forma de vista -->
+        <field name ="view_mode">tree,form</field>
+    </record>
+    
+    <record id="autores_action" model="ir.actions.act_window">
+        <field name="name">Autores</field>
+        <!-- indicamos el modelo a utilizar -->
+        <field name="res_model">autor</field>
+        <!-- indicamos la forma de vista -->
+        <field name ="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="nuevo modulo" id="libreria"/>
+    <!-- con parent indicamos dentro de donde queremos situar el menuitem -->
+    <menuitem name="Jugadores" id="jugadores_menu" parent="libreria" action="jugadores_action" />
+    <menuitem  name="Autores" id="autores_menu" parent="libreria" action="autores_action"/>
+</odoo>

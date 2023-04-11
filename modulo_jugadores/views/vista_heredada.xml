@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_nombre_modelo_tipovista" model="ir.ui.view">
+        <field name="name">nombre.modelo.tipovista</field>
+        <field name="model">crm.team</field>
+        <field name="name">nombre.modelo.tipovista</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='user_id']" position="after">
+                <field name="campo_nuevo" string="Nuevo campo" />
+                
+            </xpath>
+
+
+
+        </field>
+    </record>
+
+</odoo>

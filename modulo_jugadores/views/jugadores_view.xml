@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- vista formulario para Jugadores-->
+    <record id="vista_jugador_tree" model="ir.ui.view">
+        <field name="name">jugador.form</field>
+        <field name="model">modulo.jugador</field>
+        <field name="arch" type="xml">
+            <header>
+                <button name="boton_publicar" string="Publicar" type="object" states="draft" class="oe_highlight"/>
+                <button name="boton_borrador" string="Borrador" type="object" states="published"/>
+                
+                <field name="state" widget="statusbar"/>
+            </header>
+            <form string="Jugadores">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="apellido"/>
+                        <field name="altura"/>
+                        <field name="peso"/>
+                        <field name="puntos_partido"/>
+                    </group>
+                </sheet>    
+            </form>
+
+        </field>
+    </record>
+    <!-- vista formulario para autores-->
+    <record id="autores_form_view" model="ir.ui.view">
+        <field name="name">autor.form.view</field>
+        <field name="model">autor</field>
+        <field name="arch" type="xml">
+            <form string="Autores">
+                    <sheet>
+                        <group> <!--group es de Bootstrap  -->
+                            <group><!--dividimos en 6 columnas por bootstrap -->
+                                <field name="name"/>
+                                <field name="apellido"/>
+                                
+                            </group>
+                        </group>
+                    </sheet>
+            </form>
+        </field>    
+    </record>
+    <!-- vista arbol para jugadores-->
+    <record id = "jugadores_tree_view" model="ir.ui.view">
+        <field name="name">jugadores.tree.view</field>
+        <field name="model">modulo.jugador</field>
+        <field name="arch" type="xml">
+
+            <tree string="Jugadores" decoration-success="state == 'published'" decoration-info="state=='draft'">
+                <field name="nombre"  optional="show"/>
+                <field name="apellido"  optional="show"/>
+                <field name="altura"  optional="show"/>
+                <field name="peso"  optional="show"/>
+                <field name="puntos_partido"  optional="show"/>
+                <field name="state" widget="badge" decoration-info="state =='draft'" decoration-success="state=='published'"/>            
+            </tree>
+ 
+
+
+
+        </field>
+
+
+    </record>
+    
+    <!-- vista arbol para autores-->
+    <!-- <record id = "autores_tree_view" model="ir.ui.view">
+        <field name="name">autor.tree.view</field>
+        <field name="model">autor</field>
+        <field name="arch" type="xml">
+            <tree string="Autores">
+                <field name="name"/>
+                <field name="apellido"/>
+                                         
+             </tree>
+
+        </field>
+
+
+    </record> -->
+
+    <!-- vista Kanba
+     <record id="libros_kanban_views"  model="ir.ui.view">
+        <field name="name">libro.kanban.view</field>
+        <field name="model">libros</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="image" widget="image" class="oe_avatar"/>
+                <field name="name"/>
+                <field name="editorial"/>
+                <field name="isbn" />
+                <field name="autor_id"/>    
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('libros','image',record.id.raw_value)" alt="image"/>
+                        
+                            </div>
+                            <div class="oe_kanban_global_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong>
+                                                <field name="name"/>
+                                            </strong>
+                                        </div>
+                                
+                                    </div>
+                            </div>
+                        </div>    
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>  -->
+
+</odoo>
